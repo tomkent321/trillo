@@ -32,8 +32,6 @@
 .hotel-view {
   background-color: #fff;
 
-  
-
   flex: 1; // flex:  1 = grow as much as possible  (82% left over)
 }
 
@@ -42,10 +40,10 @@
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line);
+  font-size: 1.4rem;
 }
 
 .description {
-  font-size: 1.4rem;
   background-color: #fff;
   box-shadow: var(--shadow-light);
   padding: 3rem;
@@ -54,6 +52,9 @@
 }
 
 .user-reviews {
-  background-color: lightcoral;
   flex: 1; //takes up the remaining space of the 60% above
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
