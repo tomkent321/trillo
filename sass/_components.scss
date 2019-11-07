@@ -11,6 +11,12 @@
   align-items: center;
   justify-content: center;
 
+  @media only screen and (max-width: $bp-500) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+  }
+
   &__input {
     width: 90%;
     font-family: inherit;
@@ -120,11 +126,24 @@
   list-style: none;
   margin-top: 3.5rem;
 
+  @media only screen and (max-width: $bp-900) {
+    display: flex;
+    margin-top: 0;
+  }
+
   &__item {
     position: relative;
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+
+      @media only screen and (max-width: $bp-900) {
+        margin-bottom: 0;
+      }
+    }
+
+    @media only screen and (max-width: $bp-900) {
+      flex: 1; //each element will take up the max it can,  with 4 elements each will use 25%
     }
   }
 
@@ -166,6 +185,15 @@
 
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $bp-900) {
+      justify-content: center;
+      padding: 2rem;
+    }
+    @media only screen and (max-width: $bp-600) {
+      flex-direction: column;
+      padding: 1.5rem 0.5rem;
+    }
   }
 
   &__icon {
@@ -173,6 +201,13 @@
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor;
+
+    @media only screen and (max-width: $bp-600) {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+    }
   }
 }
 
@@ -183,6 +218,10 @@
   text-align: center;
   padding: 2.5rem;
   color: var(--color-grey-light-4);
+
+  @media only screen and (max-width: $bp-900) {
+    display: none;
+  }
 }
 
 //////////////// GALLERY PHOTOS
@@ -213,7 +252,10 @@
     font-size: 3rem;
     font-weight: 300;
     letter-spacing: 2px;
-    // margin-right: auto;
+    @media only screen and (max-width: $bp-600) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
 
   &__locator--icon,
@@ -222,6 +264,11 @@
     height: 1.75rem;
     width: 1.75rem;
     fill: var(--color-primary);
+
+    @media only screen and (max-width: $bp-600) {
+      height: 1.25rem;
+      width: 1.25rem;
+    }
   }
 
   &__arrow--icon {
@@ -244,10 +291,12 @@
     display: flex;
     font-size: 1.5rem;
     align-items: center;
+    @media only screen and (max-width: $bp-600) {
+      font-size: 1.25rem;
+    }
   }
   &--name {
     font-size: 1.8rem;
-    // text-decoration: none;
     color: inherit;
   }
 
@@ -263,14 +312,26 @@
     align-items: center;
     justify-content: center;
 
+    @media only screen and (max-width: $bp-600) {
+      padding: 0 1.5rem;
+    }
+
     &--number {
       font-size: 2.25rem;
       font-weight: 300;
       margin-bottom: 0.6rem;
+
+      @media only screen and (max-width: $bp-600) {
+        font-size: 1.8rem;
+      }
     }
     &--votes {
-      // margin-top: .8rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
+
+      @media only screen and (max-width: $bp-600) {
+        font-size: 0.5rem;
+      }
     }
   }
 }
@@ -352,13 +413,17 @@
     margin-right: 0.75rem;
 
     //older browsers
-    // background-image: url(../img/chevron-thin-right.svg);
-    // background-size: cover;
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover;
 
     /// newer browsers use masks
-    background-color: var(--color-primary);
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover;
+
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      background-color: var(--color-primary);
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+      background-image: none;
+    }
   }
 }
 
@@ -387,7 +452,7 @@
     border: 3px solid #fff;
 
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -403,6 +468,11 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
+
+  @media only screen and (max-width: $bp-900) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &__text {
     margin-bottom: 2rem;
@@ -449,6 +519,10 @@
     display: flex;
     align-content: center;
     font-size: 1.8rem;
+
+    @media only screen and (max-width: $bp-600) {
+      justify-content: center;
+    }
   }
 
   &::before {
@@ -468,6 +542,10 @@
 .cta {
   padding: 3.5rem 0;
   text-align: center;
+
+  @media only screen and (max-width: $bp-900) {
+    padding: 2.5rem 0;
+  }
 
   &__book-now {
     font-size: 2rem;

@@ -22,6 +22,14 @@
   --line: 1px solid var(--color-grey-light-2);
 }
 
+// media query break point variables  must be in scss not css variables to work
+
+$bp-1200: 75em;
+$bp-1100: 68.75em;
+$bp-900: 56.25em;
+$bp-600: 37.5em;
+$bp-500: 31.25em;
+
 * {
   margin: 0;
   padding: 0;
@@ -36,6 +44,10 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; // 1 rem = 10px
+
+  @media only screen and (max-width: $bp-1100) {
+    font-size: 50%; // 50% of 16px
+  }
 }
 
 body {
